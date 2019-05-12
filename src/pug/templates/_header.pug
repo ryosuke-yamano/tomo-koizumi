@@ -1,0 +1,47 @@
+-
+  var nav = {
+    index: {
+        title: 'Home',
+        path: "/",
+        pageName: "index"
+    },
+    collection: {
+        title: 'collection',
+        path: '/collection.html',
+        pageName: "collection"
+    },
+    works: {
+        title: 'works',
+        path: '/works.html',
+        pageName: "works"
+    },
+    about: {
+        title: 'about',
+        path: '/about.html',
+        pageName: "about"
+    },
+    shop: {
+        title: 'shop',
+        path: '/shop.html',
+        pageName: "shop"
+    },
+    contact: {
+        title: 'contact',
+        path: '/contact.html',
+        pageName: "contact"
+    }
+  }
+
+header.header
+    .header__wrap
+
+        h1.header__logo
+            a(href="/")
+                img(src="/images/logo.png", srcset="/images/logo@2x.png 2x" alt="Tomo Koizumi Tokyo")
+        
+        nav.nav
+            ul.nav-list
+                each val in nav
+                    li.nav-list__item
+                        a(href=val.path)(id='nav-'+val.pageName)= val.title
+

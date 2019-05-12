@@ -1,0 +1,36 @@
+.footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: $footerH;
+
+    &__wrap{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        @include side;       
+    }
+
+    &__copy{
+        display: inline-block;
+        margin-right: 40px;
+        font-size: 1.4rem;
+    }
+
+    &-list{
+        &__item{
+            display: inline-block;
+            margin-right: 8px;
+            &:last-child{
+                margin-right: 0;
+            }
+            a{
+                color: $colorMain;
+                font-size: 3.2rem;
+            }
+        }
+    }
+}

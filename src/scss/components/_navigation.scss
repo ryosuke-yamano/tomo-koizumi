@@ -1,0 +1,20 @@
+.nav{
+
+    &-list{
+        display: flex;
+        justify-content: center;
+        &__item{
+            margin-right: 120px;
+            text-align: center;
+            &:last-child{
+                margin-right: 0;
+            }
+            a{
+                color: $colorMain; 
+                font-size: 1.6rem; 
+            }
+        }
+
+    }
+
+}

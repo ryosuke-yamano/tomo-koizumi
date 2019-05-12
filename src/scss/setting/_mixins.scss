@@ -1,0 +1,70 @@
+@mixin sp{
+  @media only screen and (max-width: 767px){
+    @content;
+  }
+}
+
+@mixin pc{
+    @media only screen and (min-width: 768px){
+      @content;
+    }
+}
+
+@mixin retina{
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx){
+    @content;
+  }
+}
+
+@mixin fontEu {
+  font-family: 'Roboto',a-otf-ryumin-pr6n,游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN",メイリオ,Meiryo,serif;
+}
+
+@mixin fontJp {
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "游ゴシック", YuGothic, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+
+@mixin side{
+  padding: 0 15px;
+  @include pc{
+    padding: 0 35px;
+  }
+}
+
+@mixin maxW{
+  @include pc{
+    max-width: 1440px;
+  }
+}
+
+@mixin contentW{
+  @include pc{
+    max-width: 720px;
+  }
+}
+
+@mixin clearFix{
+    &:before,
+    &:after{
+      content: '';
+      display: block;
+      overflow: hidden;
+      clear: both;
+      height: 1px;
+      margin-top: -1px;
+      visibility: hidden;
+    }
+    &{
+      *zoom: 1;
+    }
+}
+
+@mixin middle{
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+

@@ -1,0 +1,69 @@
+ html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+body{
+    @include fontEu;
+    background-color: $colorBase;
+    color: $colorMain;
+    font-size: 1.6rem;
+    font-weight: 300;
+    font-feature-settings : "palt";
+    letter-spacing: 0.12rem;
+}
+
+#wrap {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding-bottom: $footerH;
+}
+    
+#container {
+    position: relative;
+    margin: $headerH auto 0;
+}
+
+main{
+    display: block;
+}
+
+a{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sp-elem{
+    @include sp{
+        display: block;
+    }
+    @include pc{
+       display: none; 
+    }    
+}
+
+.pc-elem{
+    @include sp{
+        display: none; 
+    }
+    @include pc{
+        display: block;
+    }    
+}

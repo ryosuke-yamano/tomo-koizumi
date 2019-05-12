@@ -1,0 +1,23 @@
+extends _app
+
+block init
+    -var pageTitle = "TOMO KOIZUMI"; 
+    -var pageDesc = "";
+    -var pageName = "index";
+    -var pathImg = "/images/index/";
+   
+block content
+
+    main(class=pageName)
+
+        .index-hero(style="background-image: url(images/index/hero_img.jpg)")
+
+        section.index-area01
+            .index-area01__wrap
+                .index-area01__image
+                    img(src=pathImg+"area01_img.jpg", alt="")
+                h2.index-area01__heading latest collection
+
+        
+                
+            

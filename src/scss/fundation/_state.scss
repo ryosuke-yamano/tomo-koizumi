@@ -1,0 +1,29 @@
+.is-show{
+    display: block !important;
+}
+
+.is-hide{
+    display: hide !important;
+}
+
+.is-fadeOut{
+    opacity: 0 !important;
+}
+
+.is-fadeIn{
+    opacity: 1 !important;
+}
+
+.is-stay{
+    position: relative;
+    font-weight: 700;
+    &:before{
+        content: "";
+        display: inline-block;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $colorMain;
+    }
+}
