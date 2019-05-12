@@ -9,3 +9,14 @@ block init
 block content
 
     main(class=pageName)
+
+        section.shop-area01
+            .shop-area01__wrap
+            - for (var i = 0; i < 6; i++){
+                article.shop-info
+                    h2.shop-info__title shop name
+                    ul.shop-info__content
+                        li: a(href="#") Address：東京都渋谷区神宮前３丁目３４−７
+                        li: a(href="#") ＋81364592826
+                        li: a(href="#") 13:00～20:00
+            -}

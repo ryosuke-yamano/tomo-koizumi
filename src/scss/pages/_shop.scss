@@ -1,0 +1,35 @@
+.shop{
+
+    @mixin linkcolor($color) {
+     color: $color; 
+        &:hover, &:active, &:focus {
+            color: lighten($color, 20%);
+        }
+    }
+
+    &-area01{
+        @include contentW;
+        margin: 0 auto;
+        &__wrap{
+            display: flex;
+            justify-content: flex-start;
+        }
+    }
+    &-info{
+        margin-top: 24px;
+        display:inline-block;
+        width:calc( 100% / 2 - calc(8px * 2) );
+        min-width: 330px;
+
+        &__title{
+            font-size: 2.4rem;
+        }
+        &__content{
+            margin-top: 16px;
+            a{
+                @include linkcolor(#707070)
+                line-height:1.5;
+            }
+        }
+    }
+}

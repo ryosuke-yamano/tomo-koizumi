@@ -1,0 +1,31 @@
+.contact{
+
+    &-area01{
+        @include contentW;
+        margin: 0 auto;
+        &__wrap{
+            display: flex;
+            justify-content: flex-start;
+        }
+        &-form{
+            position: relative;
+            width: 100%;
+            margin: 40px 8px;
+            & input[type='text']{
+                font: 1.6rem/2.4rem sans-serif;
+                box-sizing: border-box;
+                width: 100%;
+                transition: 0.3s;
+                letter-spacing: 1px;
+                color: #aaaaaa;
+                border: 1px solid #ffffff;
+                box-shadow: 1px 1px 2px 0 #707070 inset;
+                border-radius: 4px;
+            }
+            .ef input[type='text']:focus {
+                outline: none;
+                box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+            }
+        }
+    }
+}
