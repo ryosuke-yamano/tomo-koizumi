@@ -13,8 +13,22 @@ block content
         section.contact-area01
             .contact-area01__wrap
                 .contact-area01-form
+                    p subject 
+                    select(name="subject")              
+                        option(value="") ご用件を選択
+                        option(value="制作依頼") 制作依頼　To order
+                        option(value="選択２") 選択２
+                        option(value="選択２") 選択３
+                    p companyname
                     label.ef
-                        input(type="text" placeholder="お名前")
+                        input(type="text" placeholder="companyname" onfocus="this.placeholder=''" onblur="this.placeholder='companyname'")
+                    p name
                     label.ef
-                        input(type="text" placeholder="お名前")
+                        input(type="text" placeholder="name" onfocus="this.placeholder=''" onblur="this.placeholder='name'")
+                    p e-mail address
+                    label.ef
+                        input(type="text" placeholder="email" onfocus="this.placeholder=''" onblur="this.placeholder='email'")
+                    p message
+                    textarea.ef(rows="10" cols="100") 
+                    
 

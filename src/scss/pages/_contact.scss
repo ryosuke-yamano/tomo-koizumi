@@ -3,6 +3,9 @@
     &-area01{
         @include contentW;
         margin: 0 auto;
+        p {
+            margin: 24px 0 8px;
+        }
         &__wrap{
             display: flex;
             justify-content: flex-start;
@@ -11,10 +14,11 @@
             position: relative;
             width: 100%;
             margin: 40px 8px;
-            & input[type='text']{
+            & input[type='text'],textarea{
                 font: 1.6rem/2.4rem sans-serif;
                 box-sizing: border-box;
                 width: 100%;
+                padding: 8px 2px;
                 transition: 0.3s;
                 letter-spacing: 1px;
                 color: #aaaaaa;
@@ -22,9 +26,43 @@
                 box-shadow: 1px 1px 2px 0 #707070 inset;
                 border-radius: 4px;
             }
-            .ef input[type='text']:focus {
+            .ef input[type='text']:focus,textarea:focus{
                 outline: none;
                 box-shadow: inset 1px 1px 2px 0 #c9c9c9;
+            }
+            select{
+                width: 100%;
+                padding-right: 1em;
+                cursor: pointer;
+                text-indent: 0.01px;
+                text-overflow: ellipsis;
+                border: none;
+                outline: none;
+                background: transparent;
+                background-image: none;
+                -webkit-appearance: none;
+                appearance: none;
+                font: 1.6rem/2.4rem sans-serif;
+                box-sizing: border-box;
+                padding: 8px;
+                transition: 0.3s;
+                letter-spacing: 1px;
+                border: 1px solid #ffffff;
+                box-shadow: 1px 1px 2px 0 #707070 inset;
+                border-radius: 4px;
+            }
+            select::before{
+                position: absolute;
+                top: 0.8em;
+                right: 0.9em;
+                width: 0;
+                height: 0;
+                padding: 0;
+                content: '';
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-top: 6px solid #666666;
+                pointer-events: none;
             }
         }
     }
