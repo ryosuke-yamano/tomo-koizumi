@@ -1,8 +1,9 @@
 .collection{
     
     &-hero{
-        width: 100%;
-        height: calc(100vh - #{$headerH});
+        width: 70%;
+        height: calc(95vh - #{$headerH});
+        margin: 0 auto;
         margin-bottom: 120px;
         background-position: 50% 50%;
         background-repeat: no-repeat;
