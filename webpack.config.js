@@ -1,70 +1,55 @@
 const path = require('path');
 const MODE = 'development';
 const enabledSourceMap = (MODE === 'development');
+const globule = require('globule');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const Dir = {
+    public: path.join(__dirname, 'public'),
+    src: path.join(__dirname, 'src')
+}
+const Ext = {
+    html: 'html',
+    pug: 'pug'
+} 
+const Root = '';
+
+const htmlPluginConfig = globule.find([`**/*.${Ext.pug}`, `!**/_*.${Ext.pug}`], {cwd: Dir.src}).map(filename => {
+    filename.replace(new RegExp(`.${Ext.pug}$`, 'i'), `.${Ext.html}`).split('/')
+    return new HtmlWebpackPlugin({
+        inject: false,
+        minify: true,
+        filename: Root+filename.replace(new RegExp(`.${Ext.pug}$`, 'i'), `.${Ext.html}`).replace(/(\.\/)?pug/, '.'),
+        template: Dir.src+`/${filename}`
+    })
+})
+const cssPluginConfig = () => {
+    return new MiniCssExtractPlugin({
+        inject: false,
+        minify: true,
+        filename: Root+'css/style.min.css',
+        template: Dir.src+'/scss/app.scss'
+    })
+}
 
 module.exports = {
     mode: MODE,
-    entry: {
-        '/js/script.bundle.js' : './src/app.js'
-    },
-    output: {
-        path: `${__dirname}/public`,
-        filename: '[name]'
-    },
-    watch: true,
-    watchOptions: {
-        poll: true
-    },
     devServer: {
-        contentBase: path.join(__dirname, './public'),
-        publicPath: '/',
+        contentBase: Dir.public,
         port: 9999,
-        watchContentBase: true,
-        open: true,
-        inline: true,
-        hot: true
+        open: true,                      
+        inline: false
+    },
+    entry: Dir.src+'/app.js',
+    output: {
+        path: Dir.public,
+        filename: Root+'js/script.bundle.js'
     },
     plugins: [
-        //html
-        new HtmlWebpackPlugin({
-            inject: false,
-            filename: 'index.html',
-            template: './src/pug/index.pug',
-        }),
-        new HtmlWebpackPlugin({
-            inject: false,
-            filename: 'collection.html',
-            template: './src/pug/collection.pug'          
-        }),
-        new HtmlWebpackPlugin({
-            inject: false,
-            filename: 'works.html',
-            template: './src/pug/works.pug'          
-        }),
-        new HtmlWebpackPlugin({
-            inject: false,
-            filename: 'about.html',
-            template: './src/pug/about.pug'          
-        }),
-        new HtmlWebpackPlugin({
-            inject: false,
-            filename: 'shop.html',
-            template: './src/pug/shop.pug'          
-        }),
-        new HtmlWebpackPlugin({
-            inject: false,
-            filename: 'contact.html',
-            template: './src/pug/contact.pug'          
-        }),
-        //css
-        new MiniCssExtractPlugin({
-            filename: 'css/style.min.css',
-            template: './src/scss/app.scss'
-        })
+        ...htmlPluginConfig,
+        cssPluginConfig()
     ],
     resolve: {
         extensions: ['*', '.pug', '.scss', '.js', '.json']
