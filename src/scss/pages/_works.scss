@@ -1,0 +1,54 @@
+.works{
+
+    &-area01{
+        @include contentW;
+        margin: 0 auto;
+        &__wrap{
+            display: flex;
+            justify-content: flex-start;
+        }   
+
+        &__image{
+            width: 370px;
+            height: 370px;
+            margin-right: 80px;
+            img{
+                display: block;
+                width: 100%;
+            }
+        }
+        &__desc{
+            width: 320px;
+        }
+
+        &__heading{
+            font-size: 2.4rem;
+        }
+    }
+
+    &-area02{
+        @include contentW;
+        margin: 0 auto;
+        &__wrap{
+            display: flex;
+            justify-content: flex-start;
+        }   
+
+        &__image{
+            width: 370px;
+            height: 370px;
+            margin-left: 80px;
+            img{
+                display: block;
+                width: 100%;
+            }
+        }
+        &__desc{
+            width: 320px;
+        }
+
+        &__heading{
+            font-size: 2.4rem;
+        }
+    }
+}
